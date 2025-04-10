@@ -5,17 +5,15 @@ import (
 )
 
 func main() {
-	var numeros [5]int 
+	var idade int
+	fmt.Println("Informe sua idade")
+	fmt.Scan(&idade)
 
-	for i := 0; i < len(numeros); i++ {
-		fmt.Printf("Digite o %dº número: ", i+1)
-		fmt.Scan(&numeros[i])
-	}
-
-	soma := 0
-	for i := 0; i < len(numeros); i++ {
-		soma += numeros[i]
-	}
-
-	fmt.Printf("A soma dos números é: %d\n", soma)
+	if idade < 18 {
+		fmt.Println("você é menor de idade")
+	} else if idade >=18 && idade <60 {
+		fmt.Println("você é adulto")
+	} else if idade >=60 {
+		fmt.Println("voce é idoso")
+}
 }
