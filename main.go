@@ -12,13 +12,10 @@ func main() {
 		fmt.Scan(&numeros[i])
 	}
 
-	soma :=0
-   
+	soma := 0
 	for i := 0; i < len(numeros); i++ {
 		soma += numeros[i]
 	}
 
 	fmt.Printf("A soma dos números é: %d\n", soma)
 }
-
- 
