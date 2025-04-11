@@ -4,28 +4,40 @@ import (
 	"fmt"
 )
 
+var saldo float32
+var valor float32
+
 func main() {
-	var saldo float32
-	var saque float32
-	var deposito float32
-	var decisao int
-	var saldofinal float32
-	var depositofinal float32
-	fmt.Println("Informe seu saldo")
+	var opcao int
+
+	fmt.Print("Informe seu saldo inicial: ")
 	fmt.Scan(&saldo)
-	fmt.Println("Para sacar digite 1 ou digite 2 para depositar")
-	fmt.Scan(&decisao)
+	fmt.Println("Escolha uma opção: 1 para sacar, 2 para depositar")
+	fmt.Print("Opção: ")
+	fmt.Scan(&opcao)
 
-	if decisao == 1 {
-		fmt.Println("Valor desejado para sue saque:")
-		fmt.Scan(&saque)
-		saldofinal = saldo - saque
-		fmt.Println("seu saldo final é ",saldofinal)
+	fmt.Print("Informe o valor:")
+	fmt.Scan(&valor)
 
-		} else if decisao == 2 {
-		fmt.Println("Valor desejado para deposito:")
-		fmt.Scan(&deposito)
-		depositofinal = saldo + deposito
-		fmt.Println("Seu saldo final é ", depositofinal)
-		}
+	if opcao == 1 {
+		sacar()
+	} else if opcao == 2 {
+		depositar()
+	} else {
+		fmt.Println("Opção inválida.")
+	} 
+} 
+
+func sacar() {
+	if valor > saldo {
+		fmt.Println("Saldo insuficiente.")
+	} else {
+		saldo -= valor
+		fmt.Println("Saque realizado com sucesso! Saldo atual:", saldo)
 	}
+}
+
+func depositar() {
+	saldo += valor
+	fmt.Println("Depósito realizado com sucesso! Saldo atual:", saldo)
+}
